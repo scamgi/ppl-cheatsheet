@@ -32,45 +32,55 @@
 \definecolor{codeblue}{rgb}{0,0,1}
 \definecolor{codegreen}{rgb}{0,0.5,0}
 
-% Custom tcolorbox style for code listings
-\newtcbinputlisting{\mycode}[2][]{%
-  listing file={#2},
-  colback=codegray,
-  colframe=black!75,
-  listing only,
-  left=5mm,
-  right=5mm,
-  top=3mm,
-  bottom=3mm,
-  boxrule=0.5pt,
-  arc=2mm,
-  title=File: \texttt{#2},
-  listing options={
-    language=Haskell, % Default language, can be overridden
-    basicstyle=\ttfamily\small,
-    keywordstyle=\color{codepurple}\bfseries,
-    stringstyle=\color{codeblue},
-    commentstyle=\color{codegreen}\itshape,
-    numberstyle=\tiny\color{black!50},
-    breaklines=true,
-    showstringspaces=false,
-    numbers=left,
-    numbersep=5pt,
-    #1 % Allow passing extra options
-  }
-}
-
-% Define styles for specific languages
+% --- Define language styles for listings ---
 \lstdefinestyle{racketstyle}{
   language=[SML]Racket,
   morekeywords={define, lambda, if, else, cond, let, let*, begin, set!, require, provide},
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{codepurple}\bfseries,
+  stringstyle=\color{codeblue},
+  commentstyle=\color{codegreen}\itshape,
+  numberstyle=\tiny\color{black!50},
+  breaklines=true,
+  showstringspaces=false,
 }
 
 \lstdefinestyle{haskellstyle}{
   language=Haskell,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{codepurple}\bfseries,
+  stringstyle=\color{codeblue},
+  commentstyle=\color{codegreen}\itshape,
+  numberstyle=\tiny\color{black!50},
+  breaklines=true,
+  showstringspaces=false,
 }
 
 \lstdefinestyle{erlangstyle}{
   language=Erlang,
   morekeywords={module, export, define, case, of, when, receive, after, fun, spawn, send},
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{codepurple}\bfseries,
+  stringstyle=\color{codeblue},
+  commentstyle=\color{codegreen}\itshape,
+  numberstyle=\tiny\color{black!50},
+  breaklines=true,
+  showstringspaces=false,
+}
+
+% --- Create a new tcolorbox environment for code listings ---
+\newtcblisting{codelisting}{
+  listing only,
+  colback=codegray,
+  colframe=black!75,
+  boxrule=0.5pt,
+  arc=2mm,
+  left=5mm,
+  right=5mm,
+  top=3mm,
+  bottom=3mm,
+  listing options={
+    numbers=left,
+    numbersep=5pt,
+  }
 }
