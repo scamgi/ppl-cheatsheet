@@ -1,0 +1,29 @@
+% sections/racket/racket-data-types.tex
+
+\subsection{Data Types}
+
+\begin{racketcode}
+; -- Booleans
+(define t #\t) ; => t = #\t (true)
+(define f #\f) ; => f = #\f (false)
+
+; -- Numbers
+(define i 9125)               ; integer
+(define b #b10001110100101)    ; binary
+(define o #o21645)              ; octal
+(define h #x23a5)               ; hexadecimal
+(define r 91.25)              ; real
+(define q 91/25)              ; rational
+(define c 91+25i)             ; complex
+
+; -- Characters
+(define char_A #\A)           ; => #\A
+(define char_lambda #\Î»)      ; => #\Î»
+(define char_uni #\u30BB)     ; => #\u30BB
+
+; -- Null
+(define n null) ; => '()
+
+; -- Strings
+(define s "Hello, world!") ; => "Hello, world!"
+\end{racketcode}
