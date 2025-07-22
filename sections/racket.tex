@@ -6,7 +6,7 @@
 
 \subsection{Basic Syntax}
 Here is an example of a simple Racket function.
-\begin{lstlisting}[style=racketstyle]
+\begin{racketcode}
 ; A simple factorial function
 (define (factorial n)
   (if (= n 0)
@@ -14,7 +14,7 @@ Here is an example of a simple Racket function.
       (* n (factorial (- n 1)))))
 
 (displayln (factorial 5))
-\end{lstlisting}
+\end{racketcode}
 
 \lipsum[2]
 
