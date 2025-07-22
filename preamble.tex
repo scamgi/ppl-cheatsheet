@@ -27,15 +27,15 @@
 \tcbuselibrary{listings}
 
 % Define custom colors
-\definecolor{codegray}{gray}{0.95}
+\definecolor{codegray}{gray}{0.90} % A visible gray background
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{codeblue}{rgb}{0,0,1}
 \definecolor{codegreen}{rgb}{0,0.5,0}
 
-% --- Define language styles for listings ---
+% --- Define base language styles for listings ---
 \lstdefinestyle{racketstyle}{
-  language=[SML]Racket,
-  morekeywords={define, lambda, if, else, cond, let, let*, begin, set!, require, provide},
+  language=Lisp, % Switched to Lisp as a more stable base for Racket/Scheme
+  morekeywords={define, lambda, if, else, cond, let, let*, begin, set!, require, provide, displayln},
   basicstyle=\ttfamily\small,
   keywordstyle=\color{codepurple}\bfseries,
   stringstyle=\color{codeblue},
@@ -68,19 +68,35 @@
   showstringspaces=false,
 }
 
-% --- Create a new tcolorbox environment for code listings ---
-\newtcblisting{codelisting}{
+% --- Create dedicated tcolorbox environments for each language ---
+% This is the correct way to combine tcolorbox with listings.
+
+\newtcblisting{racketcode}{
   listing only,
   colback=codegray,
   colframe=black!75,
   boxrule=0.5pt,
   arc=2mm,
   left=5mm,
-  right=5mm,
-  top=3mm,
-  bottom=3mm,
-  listing options={
-    numbers=left,
-    numbersep=5pt,
-  }
+  listing options={style=racketstyle, numbers=left, numbersep=5pt}
+}
+
+\newtcblisting{haskellcode}{
+  listing only,
+  colback=codegray,
+  colframe=black!75,
+  boxrule=0.5pt,
+  arc=2mm,
+  left=5mm,
+  listing options={style=haskellstyle, numbers=left, numbersep=5pt}
+}
+
+\newtcblisting{erlangcode}{
+  listing only,
+  colback=codegray,
+  colframe=black!75,
+  boxrule=0.5pt,
+  arc=2mm,
+  left=5mm,
+  listing options={style=erlangstyle, numbers=left, numbersep=5pt}
 }
