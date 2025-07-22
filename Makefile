@@ -15,7 +15,7 @@ all: $(PDF_FILE)
 # -pdf: Generate PDF output
 # -outdir: Specify the output directory
 # -interaction=nonstopmode: Don't stop on errors
-$(PDF_FILE): $(MAIN_FILE) sections/*.tex sections/subsections/*.tex preamble.tex
+$(PDF_FILE): $(MAIN_FILE) sections/*.tex sections/racket/*.tex preamble.tex
 	$(LATEXMK) -pdf -outdir=$(OUT_DIR) -interaction=nonstopmode $(MAIN_FILE)
 
 # View the generated PDF

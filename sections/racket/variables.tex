@@ -1,0 +1,38 @@
+\subsection{Variables}
+
+Variables are immutable.
+
+\subsubsection{Let Syntax}
+
+\begin{racketcode}
+; for let command
+(let ([var1 expr1] [var2 expr2] ...) body ...)
+
+; for lett* command
+(let* ([var1 expr1] [var2 expr2] ...) body ...)
+
+; for let command
+(letrec ([var1 expr1] [var2 expr2] ...) body ...)
+\end{racketcode}
+
+\subsubsection{Examples}
+
+\begin{racketcode}
+; let example
+(let ((x 5)      ; x is 5
+      (y 2))     ; y is 2
+  (printf "~a ~a\n" x y)) ; => 5 2
+
+; let* example
+(let* ((x 1)           ; First, bind x to 1
+       (y (add1 x)))   ; Then, use that x to define y. y becomes 2
+  (printf "~a ~a\n" x y)) ; => 1 2
+
+; letrec example
+(letrec ((fact (lambda (n)
+                 (if (<= n 1)
+                     1
+                     (* n (fact (- n 1))))))) ; 'fact' can call itself
+  (fact 5)) ; => 120
+\end{racketcode}
+
