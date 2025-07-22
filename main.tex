@@ -1,0 +1,37 @@
+% main.tex - The main document file
+\documentclass[11pt, landscape]{article}
+
+% Input the preamble which contains all the package imports and configurations
+\input{preamble.tex}
+
+% --- Document Information ---
+\title{Principles of Programming Languages Cheatsheet}
+\author{Giacomo Scampini}
+\date{\today}
+
+\begin{document}
+
+% --- Title Page ---
+% This will be on a page by itself
+\maketitle
+\thispagestyle{empty} % No header/footer on the title page
+\newpage
+
+% --- Main Content ---
+% Switch to the fancy page style for the rest of the document
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\renewcommand{\headrulewidth}{0pt} % No header rule
+\fancyfoot[C]{\thepage} % Page number in the center of the footer
+
+% Set the document to have two columns
+\begin{multicols}{2}
+
+    % Input the content for each language from the sections folder
+    \input{sections/racket.tex}
+    \input{sections/haskell.tex}
+    \input{sections/erlang.tex}
+
+\end{multicols}
+
+\end{document}

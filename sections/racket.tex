@@ -1,0 +1,21 @@
+% sections/racket.tex
+
+\section{Racket}
+
+\lipsum[1] % Dummy text
+
+\subsection{Basic Syntax}
+Here is an example of a simple Racket function.
+\begin{lstlisting}[style=racketstyle]
+; A simple factorial function
+(define (factorial n)
+  (if (= n 0)
+      1
+      (* n (factorial (- n 1)))))
+
+(displayln (factorial 5))
+\end{lstlisting}
+
+\lipsum[2]
+
+\input{sections/subsections/name1.tex}

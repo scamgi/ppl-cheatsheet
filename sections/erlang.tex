@@ -1,0 +1,20 @@
+% sections/erlang.tex
+
+\section{Erlang}
+
+\lipsum[5] % Dummy text
+
+\subsection{Concurrency and Actors}
+Erlang's primary strength is its support for concurrency, using the actor model.
+\begin{lstlisting}[style=erlangstyle]
+-module(hello).
+-export([start/0, say_something/0]).
+
+say_something() ->
+    io:format("Hello, world!~n").
+
+start() ->
+    spawn(hello, say_something, []).
+\end{lstlisting}
+
+\lipsum[6]
