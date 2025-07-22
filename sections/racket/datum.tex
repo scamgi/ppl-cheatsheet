@@ -1,0 +1,35 @@
+\subsection{Datum evaluation}
+
+Quote:
+
+\begin{racketcode}
+; quote
+(quote (+ 1 2)) ; Returns the list '(+ 1 2)
+'(+ 1 2)        ; Same as above. Returns the list '(+ 1 2)
+\end{racketcode}
+
+Quasiquote and unquote:
+
+\begin{racketcode}
+(define my-name "Alice")
+
+; Without unquote, the expression isn't evaluated
+`(hello my-name)          ; Returns the list '(hello my-name)
+
+; With unquote, my-name is evaluated and its value is inserted
+`(hello ,my-name)         ; Returns the list '(hello "Alice")
+
+`(+ 1 ,(* 2 3))           ; Returns the list '(+ 1 6)
+\end{racketcode}
+
+unquote-splicing:
+
+\begin{racketcode}
+(define other-nums '(2 3 4))
+
+; Using regular unquote (,) inserts the whole list as one item
+`(1 ,other-nums 5)      ; Returns '(1 (2 3 4) 5)
+
+; Using unquote-splicing (,@) splices the items into the list
+`(1 ,@other-nums 5)     ; Returns '(1 2 3 4 5)
+\end{racketcode}
