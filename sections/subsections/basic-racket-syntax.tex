@@ -1,0 +1,17 @@
+% sections/subsections/basic-racket-syntax.tex
+
+\subsection{Basic Racket Syntax}
+
+A function in C or Java:
+
+\begin{verbatim}
+x == y + 3* x + z ;
+\end{verbatim}
+
+Becomes like this in Racket
+
+\begin{racketcode}
+(= x (+ y (* 3 x ) z ))
+\end{racketcode}
+
+Such expressions are called \textbf{s-expressions}
