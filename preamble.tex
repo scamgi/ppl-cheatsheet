@@ -12,6 +12,7 @@
 \usepackage{titlesec} % To control section formatting
 
 % --- General Packages ---
+\usepackage[utf8]{inputenc} % Add this line
 \usepackage{amsmath} % For math environments
 \usepackage{graphicx} % To include images
 \usepackage{lipsum}   % For generating dummy text
@@ -24,7 +25,7 @@
 % --- Code Listing Setup (with tcolorbox) ---
 \usepackage{listings}
 \usepackage{tcolorbox}
-\tcbuselibrary{listings}
+\tcbuselibrary{listings, breakable}
 
 % Define custom colors
 \definecolor{codegray}{gray}{0.90} % A visible gray background
@@ -73,6 +74,7 @@
 
 \newtcblisting{racketcode}{
   listing only,
+  breakable, % Allows the box to split across columns/pages
   colback=codegray,
   colframe=black!75,
   boxrule=0.5pt,
@@ -83,6 +85,7 @@
 
 \newtcblisting{haskellcode}{
   listing only,
+  breakable, % Allows the box to split across columns/pages
   colback=codegray,
   colframe=black!75,
   boxrule=0.5pt,
@@ -93,6 +96,7 @@
 
 \newtcblisting{erlangcode}{
   listing only,
+  breakable, % Allows the box to split across columns/pages
   colback=codegray,
   colframe=black!75,
   boxrule=0.5pt,
