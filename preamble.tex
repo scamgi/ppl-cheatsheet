@@ -27,7 +27,7 @@
 \tcbuselibrary{listings, breakable}
 
 % Define custom colors
-\definecolor{codegray}{gray}{0.90}
+\definecolor{codegray}{gray}{0.95}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{codeblue}{rgb}{0,0,1}
 \definecolor{codegreen}{rgb}{0,0.5,0}
@@ -69,7 +69,8 @@
 
 \lstdefinestyle{erlangstyle}{
   language=Erlang,
-  morekeywords={module, export, define, case, of, when, receive, after, fun, spawn, send},
+  morekeywords={module, export, define, case, of, when, receive, after, fun, 
+spawn, send},
   basicstyle=\ttfamily\small,
   keywordstyle=\color{codepurple}\bfseries,
   stringstyle=\color{codeblue},
@@ -83,8 +84,8 @@
 \newtcblisting{racketcode}{
   listing only,
   breakable,
-  colback=codegray,
-  colframe=black!75,
+  colback=codegray!50,
+  colframe=black!20,
   boxrule=0.5pt,
   arc=2mm,
   left=5mm,
@@ -94,8 +95,8 @@
 \newtcblisting{haskellcode}{
   listing only,
   breakable,
-  colback=codegray,
-  colframe=black!75,
+  colback=codegray!50,
+  colframe=black!20,
   boxrule=0.5pt,
   arc=2mm,
   left=5mm,
@@ -105,8 +106,8 @@
 \newtcblisting{erlangcode}{
   listing only,
   breakable,
-  colback=codegray,
-  colframe=black!75,
+  colback=codegray!50,
+  colframe=black!20,
   boxrule=0.5pt,
   arc=2mm,
   left=5mm,
