@@ -1,0 +1,171 @@
+\section{Functions List}
+
+\subsection{Language Primitives and Definitions}
+\begin{itemize}
+    \item \code{define}: Binds a name to a value or creates a named function.
+    \item \code{lambda}: Creates an anonymous function.
+\end{itemize}
+
+\subsection{Control Flow}
+\begin{itemize}
+    \item \code{if}: Basic conditional expression with a "then" and an "else" branch.
+    \item \code{when}: Executes a sequence of expressions if a condition is true.
+    \item \code{unless}: Executes a sequence of expressions if a condition is false.
+    \item \code{cond}: A multi-branch conditional, evaluating predicates sequentially.
+    \item \code{case}: A multi-branch conditional that compares a value against quoted constants.
+    \item \code{match}: A powerful pattern-matching conditional expression.
+    \item \code{for}: A general-purpose looping construct for various collections.
+    \item \code{in-range}, \code{in-list}, \code{in-vector}, \code{in-string}, \code{in-set}, \code{in-hash}: Collection-specific iterators for \code{for} loops.
+    \item \code{begin}: Sequences expressions, evaluating them in order.
+\end{itemize}
+
+\subsection{Variables and Scope}
+\begin{itemize}
+    \item \code{let}: Creates local, parallel variable bindings.
+    \item \code{let*}: Creates local, sequential variable bindings.
+    \item \code{letrec}: Creates local, recursive (and mutually recursive) bindings for functions.
+    \item \code{set!}: Mutates an existing variable.
+\end{itemize}
+
+\subsection{Data Types and Operations}
+
+\subsubsection{Numeric}
+\begin{itemize}
+    \item \code{+}, \code{-}, \code{*}, \code{/}: Basic arithmetic operations.
+    \item \code{=}: Checks for numeric equality.
+    \item \code{expt}: Raises a number to a power ($x^y$).
+    \item \code{exp}: Calculates e raised to the power of a number ($e^x$).
+    \item \code{log}: Calculates the natural logarithm.
+    \item \code{quotient}: Computes the integer quotient of two numbers.
+    \item \code{remainder}: Computes the integer remainder of two numbers.
+    \item \code{max}, \code{min}: Return the largest or smallest of their numeric arguments.
+    \item \code{add1}: Adds 1 to a number.
+    \item \code{sub1}: Subtracts 1 from a number.
+    \item \code{gcd}: Calculates the greatest common divisor.
+    \item \code{lcm}: Calculates the least common multiple.
+\end{itemize}
+
+\subsubsection{String}
+\begin{itemize}
+    \item \code{string-length}: Returns the number of characters in a string.
+    \item \code{string-append}: Concatenates strings.
+    \item \code{string->list}: Converts a string to a list of characters.
+    \item \code{list->string}: Converts a list of characters to a string.
+    \item \code{string-ref}: Accesses a character in a string by its index.
+\end{itemize}
+
+\subsubsection{Boolean}
+\begin{itemize}
+    \item \code{and}, \code{or}, \code{not}, \code{xor}: Standard logical operations.
+    \item \code{implies}: Logical implication.
+\end{itemize}
+
+\subsubsection{Equivalence}
+\begin{itemize}
+    \item \code{eq?}: Checks if two objects are the same in memory (pointer equality).
+    \item \code{eqv?}: Similar to \code{eq?} but handles numbers and characters by value.
+    \item \code{equal?}: Checks if two objects have the same structure and content (deep equality).
+\end{itemize}
+
+\subsection{Collections}
+
+\subsubsection{Lists and Pairs}
+\begin{itemize}
+    \item \code{list}: Creates a list from its arguments.
+    \item \code{cons}: Constructs a new pair. Prepends an element to a list.
+    \item \code{car}: Returns the first element of a pair.
+    \item \code{cdr}: Returns the second element of a pair (the rest of the list).
+    \item \code{caar}, \code{cadr}, \code{cdar}, \code{cddr}, etc.: Compositions of \code{car} and \code{cdr}.
+    \item \code{build-list}: Constructs a list by applying a procedure to an index from 0 to n-1.
+    \item \code{make-list}: Creates a list of a given size with a repeated element.
+    \item \code{length}: Returns the number of elements in a list.
+    \item \code{append}: Appends multiple lists together into a single new list.
+    \item \code{reverse}: Reverses the order of elements in a list.
+    \item \code{first}, \code{rest}, \code{last}: Access the first element, all but the first, and the last element.
+    \item \code{list-ref}: Accesses an element in a list by its index.
+    \item \code{list-tail}: Returns the sublist starting at a given index.
+    \item \code{take}, \code{drop}: Take or drop the first n elements of a list.
+    \item \code{count}: Counts the number of elements in a list that satisfy a predicate.
+\end{itemize}
+
+\subsubsection{Vectors}
+\begin{itemize}
+    \item \code{vector-ref}: Accesses an element in a vector by its index.
+    \item \code{vector-set!}: Mutates an element in a vector at a given index.
+\end{itemize}
+
+\subsubsection{Sets}
+\begin{itemize}
+    \item \code{set}: Creates a set from its arguments.
+    \item \code{list->set}: Converts a list to a set.
+    \item \code{set-add}: Adds an element to a set.
+    \item \code{set-remove}: Removes an element from a set.
+    \item \code{set-member?}: Checks if an element is in a set.
+\end{itemize}
+
+\subsubsection{Hashes}
+\begin{itemize}
+    \item \code{hash}: Creates a hash table.
+    \item \code{hash-set}: Adds or updates a key-value pair in a hash table.
+    \item \code{hash-remove}: Removes a key-value pair from a hash table.
+    \item \code{hash-ref}: Retrieves the value for a key in a hash table.
+    \item \code{hash-has-key?}: Checks if a key exists in a hash table.
+\end{itemize}
+
+\subsubsection{Structs}
+\begin{itemize}
+    \item \code{struct}: Defines a new structure type, automatically creating a constructor, predicates, and accessors.
+    \item \verb|<struct-name>-<field-name>|: Generic form for a struct field getter (e.g., \code{point-x}).
+    \item \verb|set-<struct-name>-<field-name>!|: Generic form for a mutable struct field setter.
+    \item \verb|<struct-name>?|: Generic form for a struct predicate.
+\end{itemize}
+
+\subsection{Higher-Order Functions}
+\begin{itemize}
+    \item \code{map}: Applies a function to each element of one or more lists.
+    \item \code{filter}: Returns a new list containing only the elements that satisfy a predicate.
+    \item \code{apply}: Applies a function to a list of arguments.
+    \item \code{foldl}: Left-to-right fold (reduce) operation on a list.
+    \item \code{foldr}: Right-to-left fold (reduce) operation on a list.
+\end{itemize}
+
+\subsection{Predicates (Type Checking)}
+\begin{itemize}
+    \item \code{even?}, \code{odd?}: Check if a number is even or odd.
+    \item \code{true?}, \code{false?}: Check if a value is \code{\#t} or not \code{\#f}.
+    \item \code{positive?}, \code{negative?}, \code{zero?}: Check the sign of a number.
+    \item \code{immutable?}: Checks if an object is immutable.
+    \item \code{pair?}, \code{list?}, \code{empty?}: Predicates for checking list properties.
+\end{itemize}
+
+\subsection{Type Conversion}
+\begin{itemize}
+    \item \code{inexact->exact}, \code{exact->inexact}: Convert between exact and inexact numbers.
+    \item \code{integer->float}, \code{float->integer}: Convert between integers and floats.
+    \item \code{integer->rational}, \code{rational->integer}: Convert between integers and rationals.
+    \item \code{list->vector}, \code{vector->list}: Convert between lists and vectors.
+    \item \code{vector->string}, \code{string->vector}: Convert between vectors of characters and strings.
+\end{itemize}
+
+\subsection{Input/Output and System}
+\begin{itemize}
+    \item \code{printf}: Formats and prints text to the standard output.
+    \item \code{displayln}: Prints a value to the standard output, followed by a newline.
+\end{itemize}
+
+\subsection{Macros and Syntax}
+\begin{itemize}
+    \item \code{define-syntax}: Defines a new macro.
+    \item \code{syntax-rules}: A simple pattern-based system for defining macro transformations.
+    \item \code{quote} (or \verb|'|): Prevents evaluation of an expression, treating it as data.
+    \item \code{unquote} (or \verb|,|): Used within \code{quasiquote} to evaluate an expression.
+    \item \code{quasiquote} (or \verb|`|): Creates a template where some parts can be evaluated.
+\end{itemize}
+
+\subsection{Continuations and Exceptions}
+\begin{itemize}
+    \item \code{call-with-current-continuation} (or \code{call/cc}): Captures the current continuation (the rest of the computation) as a function.
+    \item \code{raise}: Raises an exception.
+    \item \code{with-handlers}: Establishes exception handlers for a block of code.
+    \item \code{exn:fail?}: A predicate to check for a specific type of failure exception.
+\end{itemize}
