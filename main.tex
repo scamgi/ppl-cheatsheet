@@ -1,5 +1,5 @@
 % main.tex - The main document file
-\documentclass[11pt, landscape]{report}
+\documentclass[11pt]{report}
 
 % Input the preamble which contains all the package imports and configurations
 \input{preamble.tex}
@@ -28,14 +28,9 @@
 \renewcommand{\headrulewidth}{0pt} % No header rule
 \fancyfoot[C]{\thepage} % Page number in the center of the footer
 
-% Set the document to have two columns
-\begin{multicols*}{2}
-
-    % Input the content for each language from the sections folder
-    \input{chapters/racket.tex}
-    \input{chapters/haskell.tex}
-    \input{chapters/erlang.tex}
-
-\end{multicols*}
+% Input the content for each language from the sections folder
+\input{chapters/racket.tex}
+\input{chapters/haskell.tex}
+\input{chapters/erlang.tex}
 
 \end{document}

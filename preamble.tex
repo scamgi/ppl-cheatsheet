@@ -2,12 +2,10 @@
 
 % --- Page Layout & Geometry ---
 \usepackage[
-    landscape,
     a4paper,
     margin=1.5cm,
     headheight=13.6pt
 ]{geometry}
-\usepackage{multicol} % For two-column layout
 \usepackage{fancyhdr} % For custom headers and footers
 \usepackage{titlesec} % To control section formatting
 
@@ -69,8 +67,7 @@
 
 \lstdefinestyle{erlangstyle}{
   language=Erlang,
-  morekeywords={module, export, define, case, of, when, receive, after, fun, 
-spawn, send},
+  morekeywords={module, export, define, case, of, when, receive, after, fun, spawn, send},
   basicstyle=\ttfamily\small,
   keywordstyle=\color{codepurple}\bfseries,
   stringstyle=\color{codeblue},
