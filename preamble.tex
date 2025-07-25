@@ -12,15 +12,15 @@
 \usepackage{titlesec} % To control section formatting
 
 % --- General Packages ---
-\usepackage[T1]{fontenc}    % Use 8-bit T1 fonts to correctly render special characters
-\usepackage[utf8]{inputenc} % Specify UTF-8 input encoding
-\usepackage{amsmath}        % For math environments
-\usepackage{graphicx}       % To include images
-\usepackage{lipsum}         % For generating dummy text
-\usepackage{xcolor}         % For defining custom colors
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{xcolor}
+\usepackage{textcomp} % Required for specific symbols
 
 % --- Section Formatting ---
-% Make each \section start on a new page
 \newcommand{\sectionbreak}{\clearpage}
 
 % --- Code Listing Setup (with tcolorbox) ---
@@ -28,17 +28,22 @@
 \usepackage{tcolorbox}
 \tcbuselibrary{listings, breakable}
 
-% --- Configure listings to handle UTF-8 characters ---
-\lstset{
-    inputencoding=utf8,
-    extendedchars=true
-}
-
 % Define custom colors
 \definecolor{codegray}{gray}{0.90}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{codeblue}{rgb}{0,0,1}
 \definecolor{codegreen}{rgb}{0,0.5,0}
+
+% --- Configure listings to handle special UTF-8 characters ---
+% This is the key change to fix the compilation error.
+\lstset{
+    inputencoding=utf8,
+    extendedchars=true,
+    literate=
+      {Î»}{{$\lambda$}}1
+      {セ}{--}1 % Replace Katakana 'se' with a dash as a placeholder
+}
+
 
 % --- Define base language styles for listings ---
 \lstdefinestyle{racketstyle}{
