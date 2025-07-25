@@ -1,0 +1,76 @@
+% chapters/racket/higher-order-functions.tex
+
+\section{Higher-Order Functions}
+\label{sec:higher-order-functions}
+
+Higher-order functions are functions that can take other functions as arguments or return them as results. They are a cornerstone of functional programming in Racket, enabling concise and powerful ways to manipulate data. Common higher-order functions include \code{map}, \code{filter}, \code{apply}, and the fold family (\code{foldl}, \code{foldr}).
+
+\subsection{\code{map}}
+The \code{map} function creates a new list by applying a given procedure to each element of one or more input lists. The output list will have the same number of elements as the input list(s).
+
+\begin{racketcode}
+; Applies the add1 function to each element
+(map add1 '(1 2 3)) ; => '(2 3 4)
+
+; Squares each number in the list
+(map (lambda (x) (* x x)) '(1 2 3 4)) ; => '(1 4 9 16)
+
+; Applies a function to elements from two lists
+(map + '(1 2 3) '(10 20 30)) ; => '(11 22 33)
+\end{racketcode}
+
+\subsection{\code{filter}}
+The \code{filter} function creates a new list containing only the elements from an input list that satisfy a given predicate (a function that returns true or false).
+
+\begin{racketcode}
+; Keeps only the even numbers
+(filter even? '(1 2 3 4 5 6)) ; => '(2 4 6)
+
+; Keeps only strings with length greater than 3
+(filter (lambda (s) (> (string-length s) 3)) '("a" "list" "of" "words")) ; => '("list" "words")
+\end{racketcode}
+
+\subsection{\code{apply}}
+The \code{apply} function calls a procedure with a list of arguments. It "unpacks" the list, feeding its elements as individual arguments to the procedure.
+
+\begin{racketcode}
+; Equivalent to calling (+ 1 2 3 4)
+(apply + '(1 2 3 4)) ; => 10
+
+; Equivalent to calling (max 5 9 2 8)
+(apply max '(5 9 2 8)) ; => 9
+
+; Appends a list of lists
+(apply append '((1 2) (3 4) (5 6))) ; => '(1 2 3 4 5 6)
+\end{racketcode}
+
+\subsection{\code{foldl} and \code{foldr}}
+Fold functions (also known as reductions) reduce a list to a single value by repeatedly applying a combining procedure.
+
+\begin{itemize}
+    \item \code{foldl}: Processes the list from \textbf{left-to-right}. The combining function takes the current list element and the accumulated value as arguments.
+    \item \code{foldr}: Processes the list from \textbf{right-to-left}. The combining function takes the current list element and the accumulated value as arguments.
+\end{itemize}
+
+While they produce the same result for associative operations like addition, the order matters for non-associative operations like subtraction (\code{-}) or \code{cons}.
+
+\begin{racketcode}
+; Summing a list (left fold)
+; -> (+ 3 (+ 2 (+ 1 0)))
+(foldl + 0 '(1 2 3)) ; => 6
+
+; Summing a list (right fold)
+; -> (+ 1 (+ 2 (+ 3 0)))
+(foldr + 0 '(1 2 3)) ; => 6
+
+; Subtraction shows the difference in order
+; foldl: (- 3 (- 2 (- 1 0)))
+(foldl - 0 '(1 2 3)) ; => 2
+
+; foldr: (- 1 (- 2 (- 3 0)))
+(foldr - 0 '(1 2 3)) ; => -2
+
+; Reversing a list with foldl
+; (cons 3 (cons 2 (cons 1 '())))
+(foldl cons '() '(1 2 3)) ; => '(3 2 1)
+\end{racketcode}
