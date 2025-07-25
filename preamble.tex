@@ -24,6 +24,17 @@
 \usepackage{tcolorbox}
 \tcbuselibrary{listings, breakable}
 
+% --- Hyperlinks ---
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue,
+    pdfsubject={A cheatsheet for Principles of Programming Languages},
+    pdfkeywords={PPL, Racket, Haskell, Erlang, Programming, Cheatsheet}
+}
+
 % Define custom colors
 \definecolor{codegray}{gray}{0.95}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -67,7 +78,8 @@
 
 \lstdefinestyle{erlangstyle}{
   language=Erlang,
-  morekeywords={module, export, define, case, of, when, receive, after, fun, spawn, send},
+  morekeywords={module, export, define, case, of, when, receive, after, fun, 
+spawn, send},
   basicstyle=\ttfamily\small,
   keywordstyle=\color{codepurple}\bfseries,
   stringstyle=\color{codeblue},
