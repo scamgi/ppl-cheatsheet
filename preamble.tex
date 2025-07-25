@@ -12,11 +12,12 @@
 \usepackage{titlesec} % To control section formatting
 
 % --- General Packages ---
-\usepackage[utf8]{inputenc} % Add this line
-\usepackage{amsmath} % For math environments
-\usepackage{graphicx} % To include images
-\usepackage{lipsum}   % For generating dummy text
-\usepackage{xcolor}   % For defining custom colors
+\usepackage[T1]{fontenc}    % Use 8-bit T1 fonts to correctly render special characters
+\usepackage[utf8]{inputenc} % Specify UTF-8 input encoding
+\usepackage{amsmath}        % For math environments
+\usepackage{graphicx}       % To include images
+\usepackage{lipsum}         % For generating dummy text
+\usepackage{xcolor}         % For defining custom colors
 
 % --- Section Formatting ---
 % Make each \section start on a new page
@@ -27,15 +28,21 @@
 \usepackage{tcolorbox}
 \tcbuselibrary{listings, breakable}
 
+% --- Configure listings to handle UTF-8 characters ---
+\lstset{
+    inputencoding=utf8,
+    extendedchars=true
+}
+
 % Define custom colors
-\definecolor{codegray}{gray}{0.90} % A visible gray background
+\definecolor{codegray}{gray}{0.90}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{codeblue}{rgb}{0,0,1}
 \definecolor{codegreen}{rgb}{0,0.5,0}
 
 % --- Define base language styles for listings ---
 \lstdefinestyle{racketstyle}{
-  language=Lisp, % Switched to Lisp as a more stable base for Racket/Scheme
+  language=Lisp,
   morekeywords={define, lambda, if, else, cond, let, let*, begin, set!, require, provide, displayln},
   basicstyle=\ttfamily\small,
   keywordstyle=\color{codepurple}\bfseries,
@@ -70,11 +77,9 @@
 }
 
 % --- Create dedicated tcolorbox environments for each language ---
-% This is the correct way to combine tcolorbox with listings.
-
 \newtcblisting{racketcode}{
   listing only,
-  breakable, % Allows the box to split across columns/pages
+  breakable,
   colback=codegray,
   colframe=black!75,
   boxrule=0.5pt,
@@ -85,7 +90,7 @@
 
 \newtcblisting{haskellcode}{
   listing only,
-  breakable, % Allows the box to split across columns/pages
+  breakable,
   colback=codegray,
   colframe=black!75,
   boxrule=0.5pt,
@@ -96,7 +101,7 @@
 
 \newtcblisting{erlangcode}{
   listing only,
-  breakable, % Allows the box to split across columns/pages
+  breakable,
   colback=codegray,
   colframe=black!75,
   boxrule=0.5pt,
