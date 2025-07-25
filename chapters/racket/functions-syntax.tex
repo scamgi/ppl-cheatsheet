@@ -1,0 +1,170 @@
+\section{Functions Syntax}
+
+\begin{racketcode}
+; Language Primitives and Definitions
+(define variable value)
+(define (function-name parameter ...) body ...)
+(lambda (parameter ...) body ...)
+
+; Control Flow
+(if condition then-expression else-expression)
+(when condition body ...)
+(unless condition body ...)
+(cond [predicate-1 expression-1] [predicate-2 expression-2] ... [else expression-n])
+(case value [(datum ...) expression] ... [else expression])
+(match expression [pattern expression] ...)
+(for ([variable sequence]) body ...)
+(for ([i (in-range start end step)]) ...)
+(for ([x (in-list a-list)]) ...)
+(for ([x (in-vector a-vector)]) ...)
+(for ([c (in-string a-string)]) ...)
+(for ([e (in-set a-set)]) ...)
+(for ([(k v) (in-hash a-hash)]) ...)
+(begin expression ...)
+
+; Variables and Scope
+(let ([variable-1 value-1] [variable-2 value-2] ...) body ...)
+(let* ([variable-1 value-1] [variable-2 value-2] ...) body ...)
+(letrec ([variable-1 value-1] [variable-2 value-2] ...) body ...)
+(set! variable new-value)
+
+; Data Types and Operations
+
+; Numeric
+(+ num ...)
+(- num ...)
+(* num ...)
+(/ num ...)
+(= num1 num2 num ...)
+(expt base power)
+(exp number)
+(log number)
+(quotient num1 num2)
+(remainder num1 num2)
+(max num ...)
+(min num ...)
+(add1 number)
+(sub1 number)
+(gcd num ...)
+(lcm num ...)
+
+; String
+(string-length string)
+(string-append string ...)
+(string->list string)
+(list->string list-of-chars)
+(string-ref string index)
+
+; Boolean
+(and expression ...)
+(or expression ...)
+(not expression)
+(xor expression ...)
+(implies antecedent consequent)
+
+; Equivalence
+(eq? val1 val2)
+(eqv? val1 val2)
+(equal? val1 val2)
+
+; Collections
+
+; Lists
+(list item ...)
+(cons item list)
+(car a-pair)
+(cdr a-pair)
+(caar pair)
+(cadr pair)
+(cdar pair)
+(cddr pair)
+(cadddr pair)
+(caaar pair)
+(build-list n procedure)
+(make-list n value)
+(length a-list)
+(append list ...)
+(reverse a-list)
+(first a-list)
+(rest a-list)
+(last a-list)
+(list-ref a-list index)
+(list-tail a-list index)
+(take a-list n)
+(drop a-list n)
+(count item a-list)
+
+; Vectors
+(vector-ref a-vector index)
+(vector-set! a-vector index value)
+
+; Sets
+(set item ...)
+(list->set a-list)
+(set-add a-set item)
+(set-remove a-set item)
+(set-member? a-set item)
+
+; Hashes
+(hash (key . value) ...)
+(hash-set a-hash key value)
+(hash-remove a-hash key)
+(hash-ref a-hash key)
+(hash-has-key? a-hash key)
+
+; Structs
+(struct struct-name (field ...))
+(struct-name-field-name an-instance)
+(set-struct-name-field-name! an-instance new-value)
+(struct-name? value)
+
+; Higher-Order Functions
+(map procedure list ...)
+(filter predicate a-list)
+(apply procedure arg ... list-of-args)
+(foldl procedure initial-value a-list)
+(foldr procedure initial-value a-list)
+
+; Predicates (Type Checking)
+(even? integer)
+(odd? integer)
+(true? value)
+(false? value)
+(positive? number)
+(negative? number)
+(zero? number)
+(immutable? value)
+(pair? value)
+(list? value)
+(empty? value)
+
+; Type Conversion
+(inexact->exact number)
+(exact->inexact number)
+(round number) ; For float->integer and rational->integer
+(floor number) ; For float->integer and rational->integer
+(ceiling number) ; For float->integer and rational->integer
+(list->vector a-list)
+(vector->list a-vector)
+(vector->string a-vector-of-chars)
+(string->vector a-string)
+
+; Input/Output and System
+(printf format-string value ...)
+(displayln value)
+
+; Macros and Syntax
+(define-syntax name transformer)
+(syntax-rules (literal ...) [pattern template] ...)
+(quote datum)
+'datum
+(unquote expression) ; Used as ,expression
+(quasiquote template) ; Used as `template
+
+; Continuations and Exceptions
+(call-with-current-continuation procedure)
+(call/cc procedure)
+(raise value)
+(with-handlers ([predicate handler] ...) body ...)
+(exn:fail? value)
+\end{racketcode}
