@@ -11,6 +11,7 @@
 
 % --- General Packages ---
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{graphicx}
@@ -43,7 +44,7 @@
 
 % --- Configure listings to handle special UTF-8 characters ---
 % This is the key change to fix the compilation error.
-\lstset{
+  \lstset{
     inputencoding=utf8,
     extendedchars=true,
     literate=
@@ -78,8 +79,7 @@
 
 \lstdefinestyle{erlangstyle}{
   language=Erlang,
-  morekeywords={module, export, define, case, of, when, receive, after, fun, 
-spawn, send},
+  morekeywords={module, export, define, case, of, when, receive, after, fun, spawn, send},
   basicstyle=\ttfamily\small,
   keywordstyle=\color{codepurple}\bfseries,
   stringstyle=\color{codeblue},

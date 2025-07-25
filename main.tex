@@ -13,9 +13,11 @@
 
 % --- Title Page ---
 % This will be on a page by itself
+\hypersetup{pageanchor=false} % <-- ADDED: Disable anchor for this page
 \maketitle
 \thispagestyle{empty} % No header/footer on the title page
 \newpage
+\hypersetup{pageanchor=true} % <-- ADDED: Re-enable anchors for the rest of the document
 
 % --- Table of Contents ---
 \tableofcontents
