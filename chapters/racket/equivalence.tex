@@ -1,0 +1,56 @@
+% chapters/racket/equivalence.tex
+
+\section{Equivalence}
+
+In Racket, the operators \code{=}, \code{eq?}, \code{eqv?}, and \code{equal?} are all used for comparison, but they have key differences in what they check for and how they determine equivalence.
+
+\subsection{\code{=}}
+The \code{=} operator is specifically used for \textbf{numerical equivalence}. It compares numbers to see if they have the same value.
+
+\begin{racketcode}
+(= 2 2)          ; => #t
+(= 3.14 3.14)    ; => #t
+(= 5/2 2.5)      ; => #t
+(= 1 2)          ; => #f
+\end{racketcode}
+
+\subsection{\code{eq?}}
+The \code{eq?} operator checks if two arguments refer to the \textbf{exact same object in memory}. It's the most granular of the equivalence checks. For numbers, it also checks for equivalence.
+
+\begin{racketcode}
+(define x '(1 2))
+(define y '(1 2))
+(define z x)
+
+(eq? x y) ; => #f (x and y are different objects)
+(eq? x z) ; => #t (z refers to the same object as x)
+(eq? 'apple 'apple) ; => #t
+(eq? 1 1) ; => #t
+\end{racketcode}
+
+\subsection{\code{eqv?}}
+\code{eqv?} is similar to \code{eq?} but has slightly more relaxed conditions for what it considers equivalent. It is the standard for object equivalence.
+
+\begin{racketcode}
+(eqv? 'yes 'yes) ; => #t
+(eqv? 10 10) ; => #t
+(eqv? #\A #\A) ; => #t
+
+(define x '(a b))
+(define y '(a b))
+(eqv? x y) ; => #f
+\end{racketcode}
+
+\subsection{\code{equal?}}
+The \code{equal?} operator performs a \textbf{structural comparison}. It checks if two objects have the same structure and contents, even if they are not the same object in memory.
+
+\begin{racketcode}
+(equal? "hello" "hello") ; => #t
+(equal? '(1 (2 3)) '(1 (2 3))) ; => #t
+(equal? (vector 1 2) (vector 1 2)) ; => #t
+
+(define x '(a b))
+(define y '(a b))
+(equal? x y) ; => #t (x and y have the same structure)
+(equal? 'yes 'no) ; => #f
+\end{racketcode}
