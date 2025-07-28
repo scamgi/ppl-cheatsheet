@@ -1,0 +1,90 @@
+\section{Functions Syntax}
+
+\begin{haskellcode}
+-- Language Primitives and Definitions
+functionName :: Type -> Type
+functionName argument = body
+
+-- Type Definitions
+data TypeName = Constructor1 | Constructor2
+data ProductType = Constructor FieldType1 FieldType2
+type SynonymName = ExistingType
+
+-- Control Flow
+if condition then expression1 else expression2
+case expression of
+  pattern1 -> result1
+  pattern2 -> result2
+  _        -> defaultResult
+
+-- Guards
+functionName arg
+  | guard1 = result1
+  | guard2 = result2
+  | otherwise = defaultResult
+
+-- Variables and Scope (let/in and where)
+let variable = value in expression
+functionName arg = expression where variable = value
+
+-- Data Types and Operations
+
+-- Numeric (assuming 'a' is a numeric type like Int or Double)
+(+) :: Num a => a -> a -> a
+(-) :: Num a => a -> a -> a
+(*) :: Num a => a -> a -> a
+(/) :: Fractional a => a -> a -> a
+(==) :: Eq a => a -> a -> Bool
+(**) :: Floating a => a -> a -> a
+exp :: Floating a => a -> a
+log :: Floating a => a -> a
+quot :: Integral a => a -> a -> a
+rem :: Integral a => a -> a -> a
+max :: Ord a => a -> a -> a
+min :: Ord a => a -> a -> a
+succ :: (Enum a, Bounded a) => a -> a
+pred :: (Enum a, Bounded a) => a -> a
+gcd :: Integral a => a -> a -> a
+lcm :: Integral a => a -> a -> a
+
+-- String and List
+(++) :: [a] -> [a] -> [a]
+length :: [a] -> Int
+words :: String -> [String]
+unwords :: [String] -> String
+reverse :: [a] -> [a]
+(:) :: a -> [a] -> [a]
+head :: [a] -> a
+last :: [a] -> a
+(!!) :: [a] -> Int -> a
+take :: Int -> [a] -> [a]
+drop :: Int -> [a] -> [a]
+tail :: [a] -> [a]
+splitAt :: Int -> [a] -> ([a], [a])
+sum :: Num a => [a] -> a
+product :: Num a => [a] -> a
+null :: [a] -> Bool
+elem :: Eq a => a -> [a] -> Bool
+zip :: [a] -> [b] -> [(a, b)]
+
+-- List Comprehension
+[x * 2 | x <- [1..10], even x]
+
+-- Boolean
+(&&) :: Bool -> Bool -> Bool
+(||) :: Bool -> Bool -> Bool
+not :: Bool -> Bool
+
+-- Higher-Order Functions
+map :: (a -> b) -> [a] -> [b]
+filter :: (a -> Bool) -> [a] -> [a]
+foldl :: (b -> a -> b) -> b -> [a] -> b
+foldr :: (a -> b -> b) -> b -> [a] -> b
+
+-- Functor, Applicative, Monad
+fmap :: Functor f => (a -> b) -> f a -> f b
+pure :: Applicative f => a -> f a
+(<*>) :: Applicative f => f (a -> b) -> f a -> f b
+(>>=) :: Monad m => m a -> (a -> m b) -> m b
+do notation is syntactic sugar for (>>=)
+\end{haskellcode}
