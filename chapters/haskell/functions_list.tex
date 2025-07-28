@@ -1,0 +1,57 @@
+\section{Functions List}
+
+\subsection{Numeric Operations}
+\begin{itemize}
+    \item \code{+}, \code{-}, \code{*}, \code{/}: Basic arithmetic operations for addition, subtraction, multiplication, and division.
+    \item \code{**}: Raises a number to a power.
+    \item \code{exp}: Calculates e raised to the power of a number.
+    \item \code{log}: Calculates the natural logarithm.
+    \item \code{quot}: Computes the integer quotient of two numbers.
+    \item \code{rem}: Computes the integer remainder of two numbers.
+    \item \code{max}, \code{min}: Return the largest or smallest of their numeric arguments.
+    \item \code{succ}: Adds 1 to a number.
+    \item \code{pred}: Subtracts 1 from a number.
+    \item \code{gcd}: Calculates the greatest common divisor.
+    \item \code{lcm}: Calculates the least common multiple.
+\end{itemize}
+
+\subsection{String and List Operations}
+\begin{itemize}
+    \item \code{length}: Returns the number of characters in a string or elements in a list.
+    \item \code{++}: Concatenates strings or lists.
+    \item \code{words}: Converts a string to a list of words.
+    \item \code{unwords}: Converts a list of strings to a single string.
+    \item \code{reverse}: Reverses the order of elements in a list.
+    \item \code{:}: Prepends an element to a list.
+    \item \code{head}: Returns the first element of a list.
+    \item \code{last}: Returns the last element of a list.
+    \item \code{!!}: Accesses an element in a list by its index.
+    \item \code{take}: Returns the first n elements of a list.
+    \item \code{drop}: Removes the first n elements from a list.
+    \item \code{tail}: Returns the list containing all but the first element.
+    \item \code{splitAt}: Splits a list into two at a given position.
+    \item \code{sum}: Calculates the sum of a list of numbers.
+    \item \code{product}: Calculates the product of a list of numbers.
+    \item \code{null}: Checks if a list is empty.
+    \item \code{elem}: Checks if an element is in a list.
+    \item \code{zip}: Combines two lists into a list of tuples.
+\end{itemize}
+
+\subsection{Boolean and Predicate Functions}
+\begin{itemize}
+    \item \code{\&\&}, \code{||}, \code{not}, \code{xor}: Standard logical operations.
+    \item \code{implies}: Logical implication.
+    \item \code{all}: Checks if all elements in a list satisfy a predicate.
+    \item \code{any}: Checks if at least one element in a list satisfies a predicate.
+\end{itemize}
+
+\subsection{Higher-Order and Monadic Functions}
+\begin{itemize}
+    \item \code{filter}: Returns a new list containing only the elements that satisfy a predicate.
+    \item \code{map}: Applies a function to each element of a list.
+    \item \code{foldr}, \code{foldl}: Right-to-left and left-to-right fold (reduce) operations on a list.
+    \item \code{fmap}: Applies a function to a value in a context (functor).
+    \item \code{pure}: Takes a value and puts it in a default applicative context.
+    \item \code{<*>}: Applies a function in a context to a value in a context.
+    \item \code{>>=}: Binds a monadic action to a function that returns a monadic action.
+\end{itemize}
