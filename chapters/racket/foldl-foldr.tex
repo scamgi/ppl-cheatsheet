@@ -1,0 +1,36 @@
+\section{\texttt{foldl} and \texttt{foldr}}
+
+\begin{table}[h!]
+\centering
+\caption{Comparison of \texttt{foldl} and \texttt{foldr}}
+\label{tab:folds}
+\begin{tabular}{lll}
+\toprule
+\textbf{Feature} & \textbf{\texttt{foldl} (fold-left)} & \textbf{\texttt{foldr} (fold-right)} \\
+\midrule
+\begin{tabular}[c]{@{}l@{}}Association\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Left-associative: \\ \texttt{op(op(op(init, i1), i2), i3)}\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Right-associative: \\ \texttt{op(i1, op(i2, op(i3, init)))}\end{tabular} \\
+  \addlinespace
+\begin{tabular}[c]{@{}l@{}}Processing Order\end{tabular} &
+  Starts with the first element. &
+  Logically starts with the last element. \\
+  \addlinespace
+\begin{tabular}[c]{@{}l@{}}Analogy\end{tabular} &
+  Iteration, like a \texttt{for} loop. &
+  Structural recursion. \\
+  \addlinespace
+\begin{tabular}[c]{@{}l@{}}Tail Recursion\end{tabular} &
+  \textbf{Yes}. Space-efficient. &
+  \textbf{No} (standard form). Can cause stack overflow. \\
+  \addlinespace
+\begin{tabular}[c]{@{}l@{}}Laziness\end{tabular} &
+  \textbf{No}. Processes the entire list. &
+  \textbf{Yes}. Can short-circuit and work on infinite lists. \\
+  \addlinespace
+\begin{tabular}[c]{@{}l@{}}Common Use Case\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Reducing a list to one value \\ (sum, product, etc.).\end{tabular} &
+  \begin{tabular}[c]{@{}l@{}}Transforming lists; implementing \\ \texttt{map} or \texttt{filter}.\end{tabular} \\
+\bottomrule
+\end{tabular}
+\end{table}
